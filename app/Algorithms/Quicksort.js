@@ -7,7 +7,7 @@ class QuickSort extends SortingAlgorithm {
     }
 
     step() {
-
+   
       
     }
 }
