@@ -1,11 +1,9 @@
 class InsertionSort extends SortingAlgorithm {
     
-    i = 1;
-
     constructor(values) {
         super(values);
     }
-
+    i = -1;
     step() {
         let insert = values[this.i];
         let j = this.i;
@@ -14,8 +12,7 @@ class InsertionSort extends SortingAlgorithm {
             j = j - 1;
             super.CountComparisons();
         }
-        values[j] = insert;
         this.i++;
-        
+        values[j] = insert;
     }
 }

@@ -1,11 +1,9 @@
 class ShakerSort extends SortingAlgorithm {
 
-    swapped = true;
-    i = -1;
-    end;
-
+    i = -1
     constructor(values) {
         super(values);
+        this.swapped = true;
         this.end = values.length - 2;
     }
 

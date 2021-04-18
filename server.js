@@ -19,6 +19,7 @@ function handleRequest(req, res) {
   var typeExt = { '.html': 'text/html', '.js':'text/javascript', '.css': 'text/css'};
 
   var contentType = typeExt[ext] || 'text/plain';
+
 fs.readFile(__dirname + pathname,
     function (err, data) {
       if (err) {
@@ -29,3 +30,13 @@ fs.readFile(__dirname + pathname,
       res.end(data);
     });
 }
+
+var io = require('socket.io').listen(server);
+io.sockets.on('connection',
+  function (socket) {
+    console.log("We have a new client: " + socket.id);
+    socket.on('disconnect', function() {
+      console.log("Client has disconnected");
+    });
+    
+});
