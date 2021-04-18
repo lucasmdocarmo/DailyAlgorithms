@@ -16,14 +16,9 @@ function handleRequest(req, res) {
 }
   
   var ext = path.extname(pathname);
-  var typeExt = {
-    '.html': 'text/html',
-    '.js':   'text/javascript',
-    '.css':  'text/css'
-  };
+  var typeExt = { '.html': 'text/html', '.js':'text/javascript', '.css': 'text/css'};
 
   var contentType = typeExt[ext] || 'text/plain';
-
 fs.readFile(__dirname + pathname,
     function (err, data) {
       if (err) {
@@ -32,23 +27,6 @@ fs.readFile(__dirname + pathname,
       }
       res.writeHead(200,{ 'Content-Type': contentType });
       res.end(data);
-    }
-  );
-}
-
-var io = require('socket.io').listen(server);
-io.sockets.on('connection',
-  function (socket) {
-  
-    console.log("We have a new client: " + socket.id);
-    socket.on('mouse',
-      function(data) {
-        console.log("Received: 'mouse' " + data.x + " " + data.y);
-        socket.broadcast.emit('mouse', data); }
-    );
-    
-    socket.on('disconnect', function() {
-      console.log("Client has disconnected");
     });
-  }
-);
+  
+}
