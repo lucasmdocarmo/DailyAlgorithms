@@ -28,5 +28,4 @@ fs.readFile(__dirname + pathname,
       res.writeHead(200,{ 'Content-Type': contentType });
       res.end(data);
     });
-  
 }
