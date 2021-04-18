@@ -4,7 +4,7 @@ https://github.com/clementmihailescu/Sorting-Visualizer-Tutorial
 - Algo Expert Trainning
 - Using lib P5 as the engine for visualization material
 - plain javascript
-- nodejs, socketio
+- nodejs
 - html
 - Sorts: Bubble,Insertion,Merge,Quick,Selection,Shaker
 
